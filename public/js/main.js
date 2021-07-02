@@ -23,7 +23,7 @@ angular.module('insight',[
   'insight.search',
   'insight.charts',
   'insight.status',
-  'insight.stats',
+  //'insight.stats',
   'insight.connection',
   'insight.currency',
   'insight.messages'
@@ -37,7 +37,7 @@ angular.module('insight.address', []);
 angular.module('insight.search', []);
 angular.module('insight.charts', []);
 angular.module('insight.status', []);
-angular.module('insight.stats', []);
+//angular.module('insight.stats', []);
 angular.module('insight.connection', []);
 angular.module('insight.currency', []);
 angular.module('insight.messages', []);
@@ -430,10 +430,11 @@ angular.module('insight.system').controller('HeaderController',
     }, {
       'title': 'Status',
       'link': 'status'
-    }, {
+    }/*, {
       'title': 'Stats',
-      'link': 'stats'
-    }];
+      'link': 'stats'*/
+    //}
+    ];
 
     $scope.openScannerModal = function() {
       var modalInstance = $modal.open({
@@ -801,7 +802,7 @@ angular.module('insight.search').controller('SearchController',
 });
 
 // Source: public/src/js/controllers/stats.js
-angular.module('insight.stats').controller('StatsController',
+/*angular.module('insight.stats').controller('StatsController',
 function($scope, $routeParams, $location, $interval, Global, Stats, StatsSync, StatsChart) {
   var syncInterval;
   $scope.global = Global;
@@ -943,7 +944,7 @@ function($scope, $routeParams, $location, $interval, Global, Stats, StatsSync, S
     $interval.cancel(syncInterval);
   });
 });
-
+*/
 // Source: public/src/js/controllers/status.js
 angular.module('insight.status').controller('StatusController',
   function($scope, $routeParams, $location, Global, Status, Sync, getSocket) {
@@ -1390,7 +1391,7 @@ angular.module('insight.socket').factory('getSocket',
   });
 
 // Source: public/src/js/services/stats.js
-angular.module('insight.stats')
+/*angular.module('insight.stats')
   .factory('Stats',
     function($resource) {
       return $resource(window.apiPrefix + '/stats');
@@ -1404,7 +1405,7 @@ angular.module('insight.stats')
       return $resource(window.apiPrefix + '/stats/chart', {
         type: '@type'
       });
-    })
+    })*/
 // Source: public/src/js/services/status.js
 angular.module('insight.status')
   .factory('Status',
@@ -1615,10 +1616,10 @@ angular.module('insight').config(function($routeProvider) {
       templateUrl: 'views/status.html',
       title: 'Status'
     }).
-    when('/stats/', {
+    /*when('/stats/', {
       templateUrl: 'views/stats.html',
       title: 'Stats'
-    }).
+    }).*/
     when('/messages/verify/', {
       templateUrl: 'views/messages_verify.html',
       title: 'Verify Message'
